@@ -10,7 +10,7 @@ CREATE DATABASE awesome_cocktail_bar;
 ```
 and set the DB user in config/database.php or in your .env file.
 
-Run
+Then run
 ```bash
 composer update
 ```
