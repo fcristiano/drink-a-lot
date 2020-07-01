@@ -20,9 +20,10 @@
                     <img ng-src="{{d.strDrinkThumb}}" class="card-img-top">
                     <div class="card-body text-center">
                         <h6>{{ d.strDrink }}</h6>
-                        <!--<button type="button" class="btn btn-secondary mb-2" data-toggle="modal" data-target="#exampleModal">-->
-                            <!--Show detail-->
-                        <!--</button>-->
+                        <button type="button" class="btn btn-secondary mb-2" data-toggle="modal" data-target="#drinkDetailModal"
+                                ng-click="$ctrl.drinks.detail.get(d.idDrink)">
+                            Show detail
+                        </button>
                         <button class="btn btn-primary mb-2"
                                 ng-disabled="$ctrl.drinks.order.isLoading"
                                 ng-click="$ctrl.drinks.order.addDrinkToOrder(d.idDrink)">
@@ -34,5 +35,60 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="modal fade" id="drinkDetailModal" tabindex="-1" role="dialog" aria-labelledby="drinkDetailModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> {{ $ctrl.drinks.detail.data.strDrink }} </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" ng-show="$ctrl.drinks.detail.isLoading">
+                wait ...
+            </div>
+
+            <div class="modal-body" ng-hide="$ctrl.drinks.detail.isLoading">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img ng-src="{{ $ctrl.drinks.detail.data.strDrinkThumb }}" class="w-100">
+                        </div>
+                        <div class="col-md-8">
+                            <ul class="list-ingredients">
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient1">  {{ $ctrl.drinks.detail.data.strIngredient1 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient2">  {{ $ctrl.drinks.detail.data.strIngredient2 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient3">  {{ $ctrl.drinks.detail.data.strIngredient3 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient4">  {{ $ctrl.drinks.detail.data.strIngredient4 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient5">  {{ $ctrl.drinks.detail.data.strIngredient5 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient6">  {{ $ctrl.drinks.detail.data.strIngredient6 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient7">  {{ $ctrl.drinks.detail.data.strIngredient7 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient8">  {{ $ctrl.drinks.detail.data.strIngredient8 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient9">  {{ $ctrl.drinks.detail.data.strIngredient9 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient10"> {{ $ctrl.drinks.detail.data.strIngredient10 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient11"> {{ $ctrl.drinks.detail.data.strIngredient11 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient12"> {{ $ctrl.drinks.detail.data.strIngredient12 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient13"> {{ $ctrl.drinks.detail.data.strIngredient13 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient14"> {{ $ctrl.drinks.detail.data.strIngredient14 }} </li>
+                                <li ng-show="$ctrl.drinks.detail.data.strIngredient15"> {{ $ctrl.drinks.detail.data.strIngredient15 }} </li>
+                            </ul>
+                            ---
+                            <p>
+                                Category: <b>{{ $ctrl.drinks.detail.data.strCategory }}</b><br>
+                                Alcohol:  <b>{{ $ctrl.drinks.detail.data.strAlcoholic }}</b><br>
+                                Glass:    <b>{{ $ctrl.drinks.detail.data.strGlass }}</b><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>

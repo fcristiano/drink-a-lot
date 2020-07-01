@@ -36,6 +36,11 @@
             order: {
                 isLoading: false,
                 addDrinkToOrder: addDrinkToOrder
+            },
+            detail: {
+                isLoading: false,
+                data: null,
+                get: getDrinkDetail
             }
         };
 
@@ -82,9 +87,28 @@
                     drinks.order.isLoading = false;
                     $location.path('/order/summary')
                 },
-                function(data, status, headers, config) {
+                function(response, status, headers, config) {
                     drinks.order.isLoading = false;
-                    alert(data.data.error.message);
+                    alert(response.data.error.message);
+                }
+            );
+        }
+
+        function getDrinkDetail(drinkId) {
+            drinks.detail.isLoading = true;
+
+            $http({
+                method: 'GET',
+                url:    '/api/v1/drinks/'+ drinkId
+            })
+            .then(
+                function(response) {
+                    drinks.detail.isLoading = false;
+                    drinks.detail.data = response.data.payload;
+                },
+                function(response, status, headers, config) {
+                    drinks.detail.isLoading = false;
+                    alert(response.data.error.message);
                 }
             );
         }
