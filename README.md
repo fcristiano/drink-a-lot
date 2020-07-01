@@ -8,21 +8,20 @@ Create a DB called "awesome_cocktail_bar"
 ```sql
 CREATE DATABASE awesome_cocktail_bar;
 ```
+and set the DB user in config/database.php or in your .env file.
 
-Run
+Then run
 ```bash
 composer update
 ```
-
-After the installation the DB will automatically populated with all the tables and some useful data
+After the installation the DB will be automatically populated with needed tables and some useful data.
 
 ## Usage
-After installation launch this command
+After installation launch
 
 ```bash
-php artisan queue:work
+php artisan queue:work database
 ```
-
 The application needs a daemon to perform some async actions. 
 
 ## Playground
