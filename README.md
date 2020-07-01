@@ -14,7 +14,7 @@ Then run
 ```bash
 composer update
 ```
-After the installation the DB will automatically populated with all the tables and some useful data.
+After the installation the DB will be automatically populated with needed tables and some useful data.
 
 ## Usage
 After installation launch
