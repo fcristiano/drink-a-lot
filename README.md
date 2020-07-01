@@ -13,6 +13,7 @@ and set the DB user in config/database.php or in your .env file.
 Then run
 ```bash
 composer update
+php artisan migrate
 ```
 After the installation the DB will be automatically populated with needed tables and some useful data.
 
