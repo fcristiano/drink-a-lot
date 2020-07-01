@@ -20,7 +20,7 @@ After the installation the DB will be automatically populated with needed tables
 After installation launch
 
 ```bash
-php artisan queue:work
+php artisan queue:work database
 ```
 The application needs a daemon to perform some async actions. 
 
