@@ -1,0 +1,29 @@
+<div class="row mt-5 justify-content-center">
+    <div class="col-8">
+
+        <p class="mt-3">
+            Awesome Cocktail Bar says:
+            <span style="font-weight: 100">
+                &nbsp;&nbsp;&nbsp;
+                {{ $ctrl.order.statuses[$ctrl.order.data.status.name].description }}
+            </span>
+        </p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                 role="progressbar" ng-style="{'width': $ctrl.order.statuses[$ctrl.order.data.status.name].progress + '%'}"></div>
+        </div>
+        <p class="mt-3" ng-show="$ctrl.order.data.bartender">
+            Your bartender is
+            <span style="font-size: 15px; font-weight: 600;">
+                {{ $ctrl.order.data.bartender.name }}
+            </span>
+        </p>
+        <p class="mt-2" ng-show="$ctrl.order.data.waiter">
+            Your waiter is
+            <span style="font-size: 15px; font-weight: 600;">
+                {{ $ctrl.order.data.waiter.name }}
+            </span>
+        </p>
+    </div>
+
+</div>

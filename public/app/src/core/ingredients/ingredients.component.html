@@ -1,0 +1,29 @@
+<div class="row mt-5 justify-content-center">
+    <div class="col-4">
+
+        <div class="form">
+            <div class="form-group">
+                <label for="ingredient">Type favorite ingredient</label>
+                <input type="text" id="ingredient" class="form-control" aria-describedby="error-ingredient" ng-model="$ctrl.ingredients.list.filter">
+                <small id="error-ingredient" class="form-text text-muted"></small>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row mt-5 justify-content-center content-ingredients">
+    <div class="col-10 col-md-10 col-lg-9 col-lg-5">
+        <div class="row">
+            <div class="col-4" ng-repeat="i in $ctrl.ingredients.list.items | filter:$ctrl.ingredients.list.filter">
+                <div class="card mb-4 w-100">
+                    <img ng-src="//www.thecocktaildb.com/images/ingredients/{{i.strIngredient1}}-Medium.png" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6>{{ i.strIngredient1 }}</h6>
+                        <a ng-href="#!/drinks/by-ingredient/{{i.strIngredient1}}" class="btn btn-primary">Show Drinks!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

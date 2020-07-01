@@ -1,0 +1,24 @@
+<div class="row mt-5 justify-content-center">
+    <div class="col-4">
+
+        <div class="form">
+            <div class="form-group">
+                <label for="table-number">Table number</label>
+                <input type="text" id="table-number" class="form-control" aria-describedby="error-table"
+                       ng-model="$ctrl.barTable.form.input.tableNumber">
+
+                <small id="error-table" class="form-text text-muted"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right"
+                    ng-click="$ctrl.barTable.form.selectTable()"
+                    ng-disabled="$ctrl.barTable.form.isLoading">
+
+                <span ng-show="$ctrl.barTable.form.isLoading"> wait ... </span>
+                <span ng-hide="$ctrl.barTable.form.isLoading"> Let's go! </span>
+            </button>
+        </div>
+
+
+    </div>
+</div>
