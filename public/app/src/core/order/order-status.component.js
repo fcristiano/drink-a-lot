@@ -75,9 +75,9 @@
                         polling();
                     }
                 },
-                function(data, status, headers, config) {
+                function(response, status, headers, config) {
                     order.isLoading = false;
-                    alert(data.data.error.message);
+                    alert(response.data.error.message);
                 }
             );
         }
